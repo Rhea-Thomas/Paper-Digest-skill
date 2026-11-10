@@ -4,7 +4,23 @@ A [Claude Skill](https://docs.claude.com) that turns an academic paper (PDF) int
 short, structured digest: **Problem → Method → Key Results → Limitations**. Built to
 help quickly triage whether a paper is worth reading in full.
 
-![CI](https://github.com/Rhea-Thomas/paper-digest-skill/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/Rhea-Thomas/Paper-Digest-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/Rhea-Thomas/Paper-Digest-skill/actions/workflows/ci.yml)
+
+## Example output
+
+Give Claude a paper and ask *"what does this paper say?"*. The skill returns a note like this, generated from [`examples/sample_paper.pdf`](examples/sample_paper.pdf), a small synthetic paper:
+
+> **Efficient Retrieval for Small Language Models**
+>
+> **Problem:** Can small retrieval-augmented models match much larger language models on question answering, and cut inference cost?
+>
+> **Method:** A lightweight dense retriever paired with a 1-billion-parameter generator, evaluated on NaturalQuestions.
+>
+> **Key results:** 62.3 Exact Match; within 2 points of a 7B baseline; about 6× less compute.
+>
+> **Limitations:** English only; no multi-hop reasoning benchmarks.
+
+The full sample is in [`examples/sample_digest_output.md`](examples/sample_digest_output.md).
 
 ## How it works (system design)
 
@@ -43,7 +59,7 @@ extraction script has full test coverage with no dependency on any API.
 ## Repo structure
 
 ```
-paper-digest-skill/
+Paper-Digest-skill/
 ├── SKILL.md                    # Skill definition (frontmatter + instructions)
 ├── scripts/
 │   └── extract_text.py         # Deterministic PDF -> text extraction
